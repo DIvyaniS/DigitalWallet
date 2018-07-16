@@ -60,12 +60,10 @@
 </div>
 <div class="vertical-menu">
   <a href="#" class="active">Home</a>
-  <a href="#">Add Card</a>
-  <a href="#">Add Money</a>
-  <a href="#">View Profile</a>
-  <a href="#">Send Money</a>
-  <a href="#">Check Balance</a>
-  <a href="#">View Transactions</a>
+  <a href="#">Link 1</a>
+  <a href="#">Link 2</a>
+  <a href="#">Link 3</a>
+  <a href="#">Link 4</a>
 </div>
 <!-- /container -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

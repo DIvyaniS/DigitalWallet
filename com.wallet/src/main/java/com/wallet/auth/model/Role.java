@@ -6,12 +6,14 @@ import java.util.Set;
 @Entity
 @Table(name = "role")
 public class Role {
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    
     public Long getId() {
         return id;
     }
@@ -28,7 +30,7 @@ public class Role {
         this.name = name;
     }
 
-    @ManyToMany(mappedBy = "roles")
+    
     public Set<User> getUsers() {
         return users;
     }
