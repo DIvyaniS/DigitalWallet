@@ -59,13 +59,13 @@
 
 </div>
 <div class="vertical-menu">
-  <a href="#" class="active">Home</a>
-  <a href="#">Add Card</a>
-  <a href="#">Add Money</a>
-  <a href="#">View Profile</a>
-  <a href="#">Send Money</a>
-  <a href="#">Check Balance</a>
-  <a href="#">View Transactions</a>
+  <a href="/welcome" class="active">Home</a>
+  <a href="/addcard">Add Card</a>
+  <a href="/addmoney">Add Money</a>
+  <a href="/profile">View Profile</a>
+  <a href="/sendmoney">Send Money</a>
+  <a href="/checkbalance">Check Balance</a>
+  <a href="/viewtransaction">View Transactions</a>
 </div>
 <!-- /container -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

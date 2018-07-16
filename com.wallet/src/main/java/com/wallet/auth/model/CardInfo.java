@@ -25,8 +25,10 @@ public class CardInfo {
 	private Long id;
 	private String cardNumber;
 	private String bankName;
+	
 	@ManyToMany(mappedBy="cardInfo")
 	private Set<User> users;
+	
 	public Long getId() {
 		return id;
 	}

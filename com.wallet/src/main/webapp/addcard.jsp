@@ -59,13 +59,25 @@
 
 </div>
 <div class="vertical-menu">
-  <a href="#" class="active">Home</a>
-  <a href="#">Link 1</a>
-  <a href="#">Link 2</a>
-  <a href="#">Link 3</a>
-  <a href="#">Link 4</a>
+  <a href="/welcome" class="active">Home</a>
+  <a href="/addcard">Add Card</a>
+  <a href="/addmoney">Add Money</a>
+  <a href="/profile">View Profile</a>
+  <a href="/sendmoney">Send Money</a>
+  <a href="/checkbalance">Check Balance</a>
+  <a href="/viewtransaction">View Transactions</a>
 </div>
 <!-- /container -->
+<div>
+<form method="POST" action="${contextPath}/addcard">
+  Bank Name: <input type="text" name="bankname"><br>
+  Card Number: <input type="text" name="cardnumber"><br>
+  <input type="submit" value="Submit">
+</form>
+
+</div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
