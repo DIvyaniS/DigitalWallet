@@ -19,7 +19,8 @@ public class Transactions {
 	private Long id;
 	private java.sql.Date startDate;
 	private String fromCard;
-	
+	private String toUser;
+	private Long amount;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="T_ID")
 	private User user;
@@ -63,6 +64,38 @@ public class Transactions {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+
+
+
+
+	public String getToUser() {
+		return toUser;
+	}
+
+
+
+
+
+	public void setToUser(String toUser) {
+		this.toUser = toUser;
+	}
+
+
+
+
+
+	public Long getAmount() {
+		return amount;
+	}
+
+
+
+
+
+	public void setAmount(Long amount) {
+		this.amount = amount;
 	}
 	
 }
