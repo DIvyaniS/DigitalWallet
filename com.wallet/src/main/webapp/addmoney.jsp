@@ -67,19 +67,8 @@
   <a href="/checkbalance">Check Balance</a>
   <a href="/viewtransaction">View Transactions</a>
 </div>
-<div>
 
-<form method="POST" action="${contextPath}/sendmoney">
-  To User: <input type="text" name="touser"><br>
-  Amount : <input type="text" name="amount"><br>
-  Bank Name: <input type="text" name="bankname"><br>
-  Card Number: <input type="text" name="cardnumber"><br>
-  CVV: <input type="password" name="cvv"><br>
-  Select from saved cards:
-   
-  <input type="submit" value="Submit">
-</form>
-</div>
+
 <!-- /container -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
