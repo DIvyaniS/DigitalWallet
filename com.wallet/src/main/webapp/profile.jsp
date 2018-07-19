@@ -44,6 +44,10 @@
     color: white;
 }
 </style>
+<style>
+h2 {text-align:center;}
+p {text-align:center;}
+</style>
 </head>
 <body>
 <div class="container">
@@ -68,12 +72,12 @@
   <a href="/viewtransaction">View Transactions</a>
 </div>
 <!-- /container -->
-<div>
-Name : ${user.getUsername()}
-Balance : ${user.getBalance() }
- Cards : ${user.getCardInfo()} 
- Role : ${user.getRoles() } 	
+<div><h2>
+Name : ${user.getUsername()}<br>
+Balance : ${user.getBalance() }<br>
+ Cards : ${user.getCardInfo()} <br></h2>
 </div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

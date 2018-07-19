@@ -69,7 +69,23 @@
 </div>
 <!-- /container -->
 <div>
+<button type="button" onclick="myFunction()">View All Transactions</button>
+<p id="demo"></p>
 
+<script>
+function myFunction() {
+    
+	var val;
+	if(eval('${isPresent}')  == 0)
+		val = "You havent made any transactions yet";
+	else
+		{
+		val = eval('${result}');
+		}
+	
+	    document.getElementById("demo").innerHTML = val;
+}
+</script>
 </div>
 
 

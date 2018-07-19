@@ -103,7 +103,7 @@ public class UserController {
     }
     
     @RequestMapping(value="/addcard", method = RequestMethod.POST)
-    public String viewAddCardPage(@RequestParam(name="bankname") String bankName, @RequestParam(name="cardnumber") String cardNumber)
+    public String viewAddCardPage(@RequestParam(name="bankname") String bankName, @RequestParam(name="cardnumber") String cardNumber,Model model)
     {
     	System.out.println("*************in post addcard*********");
     	System.out.println(bankName + " "+cardNumber);
@@ -142,5 +142,23 @@ public class UserController {
     	sendMoneyService.updateBalance(auth.getName(), touser,Long.parseLong(amount));
     	transactionsService.save(auth.getName(), touser, Long.parseLong(amount));
     	return "sendmoney";
+    }
+    @RequestMapping(value="/viewtransaction", method = RequestMethod.GET)
+    public String viewTransactionsPage(Model model)
+    {
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findByUsername(auth.getName());
+    	int isPresent = 0;
+    	if(user.getTransactions() != null)
+    	{
+    		isPresent=1;
+    		String s = user.getTransactions().toString();
+    		model.addAttribute("result",s);
+    	}
+    	else
+    		isPresent=0;
+    	model.addAttribute("isPresent", isPresent);
+    	
+    	return "viewtransaction";
     }
 }

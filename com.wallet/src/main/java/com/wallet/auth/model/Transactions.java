@@ -97,5 +97,15 @@ public class Transactions {
 	public void setAmount(Long amount) {
 		this.amount = amount;
 	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Transactions [startDate=" + startDate + ", fromCard=" + fromCard + ", toUser=" + toUser + ", amount="
+				+ amount + "]";
+	}
 	
 }

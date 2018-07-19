@@ -1,11 +1,18 @@
-# Registration and Login Example with Spring Security, Spring Boot, Spring Data JPA, HSQL, JSP
 
-## Guide
-https://wallet.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/
+#Basic Digital Wallet with Spring Security, Spring Boot, Spring Data JPA, HSQL, JSP
+
 
 ## Prerequisites
-- JDK 1.7 or later
+- JDK 1.8 or later
 - Maven 3 or later
+- mysql
+- mysql database named "userbase"
+- Tomcat 9 or later to deploy the application
+- an IDE to convert to expoer into a war file
+
+
+
+
 
 ## Stack
 - Spring Security
@@ -13,7 +20,9 @@ https://wallet.com/registration-and-login-example-with-spring-security-spring-bo
 - Spring Data JPA
 - Maven
 - JSP
-- HSQL
+- MySql
 
 ## Run
 ```mvn clean spring-boot:run```
+
+

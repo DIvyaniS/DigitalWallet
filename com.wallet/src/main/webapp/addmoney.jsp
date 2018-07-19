@@ -78,8 +78,8 @@
   
   Add through another card : 
   Bank Name: <input type="text" name="bankname"><br>
-  Card Number: <input type="text" name="cardnumber"><br>
-  CVV : <input type="password" name="cardnumber"><br>
+  Card Number: <input type="text" name="fromcard"><br>
+  CVV : <input type="password" name="cvv"><br>
   <input type="submit" value="Submit">
 
 </div>
