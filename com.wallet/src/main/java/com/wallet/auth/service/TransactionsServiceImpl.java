@@ -18,7 +18,8 @@ public class TransactionsServiceImpl implements TransactionsService{
 	private UserRepository userRepository;
 	@Autowired
 	private TransactionsRepository transactionsRepository;
-	public void save(String touser,String fromuser,Long amount)
+	@Override
+	public void save(String fromuser,String touser,Long amount)
 	{
 		Transactions t = new Transactions();
 		t.setToUser(touser);
@@ -28,13 +29,15 @@ public class TransactionsServiceImpl implements TransactionsService{
 		s.add(t);
 		
 		User user = userRepository.findByUsername(fromuser);
-		if(user.getTransactions() != null)
+		if(!user.getTransactions().isEmpty())
 		{
 			user.getTransactions().add(t);
+			//System.out.println("at transactions"+user.toString());
 		}
 		else
 		{
 			user.setTransactions(s);
+			System.out.println("at transactions"+user.toString());
 			
 		}
 		transactionsRepository.save(t);

@@ -64,28 +64,14 @@
   <a href="/addmoney">Add Money</a>
   <a href="/profile">View Profile</a>
   <a href="/sendmoney">Send Money</a>
-  <a href="/checkbalance">Check Balance</a>
+ 
   <a href="/viewtransaction">View Transactions</a>
 </div>
 <!-- /container -->
-<div>
-<button type="button" onclick="myFunction()">View All Transactions</button>
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-    
-	var val;
-	if(eval('${isPresent}')  == 0)
-		val = "You havent made any transactions yet";
-	else
-		{
-		val = eval('${result}');
-		}
-	
-	    document.getElementById("demo").innerHTML = val;
-}
-</script>
+<div align="center">
+<form method = "GET">
+${result}
+</form>
 </div>
 
 

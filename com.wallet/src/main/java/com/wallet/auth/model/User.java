@@ -2,7 +2,9 @@ package com.wallet.auth.model;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import com.wallet.auth.model.CardInfo;
 import com.wallet.auth.model.*;
@@ -98,4 +100,27 @@ public class User {
 	public synchronized void setTransactions(Set<Transactions> transactions) {
 		this.transactions = transactions;
 	}
+
+	@Override
+	public String toString() {
+		return "User [transactions=" + transactions + "]";
+	}
+
+//	@Override
+//	public String toString() {
+//		String s = "";
+//		
+//		//if(transactions==null) return null;
+//		//System.out.println("in USER");
+//		//List<Transactions> list = new ArrayList<Transactions>(transactions);
+//		for(Transactions t: transactions)
+//		{
+//			
+//			//System.out.println("in USER");
+//			
+//			s += t.toString();
+//			System.out.println(t.toString());
+//		}
+//		return s;
+//	}
 }

@@ -64,7 +64,7 @@
   <a href="/addmoney">Add Money</a>
   <a href="/profile">View Profile</a>
   <a href="/sendmoney">Send Money</a>
-  <a href="/checkbalance">Check Balance</a>
+  
   <a href="/viewtransaction">View Transactions</a>
 </div>
 <!-- /container -->

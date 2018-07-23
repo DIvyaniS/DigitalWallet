@@ -64,12 +64,12 @@
   <a href="/addmoney">Add Money</a>
   <a href="/profile">View Profile</a>
   <a href="/sendmoney">Send Money</a>
-  <a href="/checkbalance">Check Balance</a>
+ 
   <a href="/viewtransaction">View Transactions</a>
 </div>
 
 
-<div>
+<div align="center">
 
 <form method="POST" >
   Amount : <input type="text" name="amount"><br>
@@ -78,7 +78,7 @@
   
   Add through another card : 
   Bank Name: <input type="text" name="bankname"><br>
-  Card Number: <input type="text" name="fromcard"><br>
+  Card Number: <input type="text" name="cardnumber"><br>
   CVV : <input type="password" name="cvv"><br>
   <input type="submit" value="Submit">
 

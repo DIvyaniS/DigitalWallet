@@ -121,7 +121,7 @@ public class UserController {
     	return "addmoney";
     }
     @RequestMapping(value="/addmoney", method = RequestMethod.POST)
-    public String viewAddMoneyPage(@RequestParam(name="amount") String amount, @RequestParam(name="fromcard") String fromcard ,Model model)
+    public String viewAddMoneyPage(@RequestParam(name="amount") String amount, @RequestParam(name="cardnumber") String fromcard ,Model model)
     {
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	addMoneyService.updateBalance(auth.getName(),Long.parseLong(amount));
@@ -136,9 +136,22 @@ public class UserController {
     	return "sendmoney";
     }
     @RequestMapping(value="/sendmoney",method = RequestMethod.POST)
-    public String viewSendMoneyPage(@RequestParam(name="touser") String touser, @RequestParam(name="amount") String amount,Model model,@RequestParam(name="fromcard") String fromcard)
+    public String viewSendMoneyPage(@RequestParam(name="touser") String touser, @RequestParam(name="amount") String amount,Model model,@RequestParam(name="cardnumber") String fromcard)
     {
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user1=userService.findByUsername(touser);
+    	User user2=userService.findByUsername(auth.getName());
+    	if( user1 == null)
+    	{
+    		model.addAttribute("error","Invalid User	");
+    		return "sendmoney";
+    	}
+    	if(user2.getBalance() < Long.parseLong(amount))
+    	{
+    		model.addAttribute("error","Insufficient funds");
+    		return "sendmoney";
+    	}
+    	model.addAttribute("error","");
     	sendMoneyService.updateBalance(auth.getName(), touser,Long.parseLong(amount));
     	transactionsService.save(auth.getName(), touser, Long.parseLong(amount));
     	return "sendmoney";
@@ -148,17 +161,20 @@ public class UserController {
     {
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findByUsername(auth.getName());
-    	int isPresent = 0;
-    	if(user.getTransactions() != null)
+    	String s;
+    	System.out.println(user.toString());
+    	if(!user.getTransactions().isEmpty())
     	{
-    		isPresent=1;
-    		String s = user.getTransactions().toString();
-    		model.addAttribute("result",s);
+    		s = user.toString();
+    		System.out.println("not null");
+    		
     	}
     	else
-    		isPresent=0;
-    	model.addAttribute("isPresent", isPresent);
-    	
+    	{
+    		s = "No Transactions to show"; 
+    	}
+    	//System.out.println("in controller"+s);
+    	model.addAttribute("result",s);
     	return "viewtransaction";
     }
 }

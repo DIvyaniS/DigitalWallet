@@ -65,23 +65,24 @@
   <a href="/addmoney">Add Money</a>
   <a href="/profile">View Profile</a>
   <a href="/sendmoney">Send Money</a>
-  <a href="/checkbalance">Check Balance</a>
+  
   <a href="/viewtransaction">View Transactions</a>
 </div>
 
 
-<div>
+<div align="center">
 
 <form method="POST" >
+	${error}<br>
   To UserName : <input type="text" name="touser"><br>
   Amount : <input type="text" name="amount"><br>
   
-  Saved Cards: 
+  Saved Cards:yet to implement<br> 
   
-  Add through another card : 
+  Add through another card : <br>
   Bank Name: <input type="text" name="bankname"><br>
   Card Number: <input type="text" name="cardnumber"><br>
-  CVV : <input type="password" name="cardnumber"><br>
+  CVV : <input type="password" name="cvvnumber"><br>
   <input type="submit" value="Submit">
 
 </div>

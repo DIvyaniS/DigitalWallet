@@ -68,14 +68,14 @@ p {text-align:center;}
   <a href="/addmoney">Add Money</a>
   <a href="/profile">View Profile</a>
   <a href="/sendmoney">Send Money</a>
-  <a href="/checkbalance">Check Balance</a>
+
   <a href="/viewtransaction">View Transactions</a>
 </div>
 <!-- /container -->
 <div><h2>
 Name : ${user.getUsername()}<br>
 Balance : ${user.getBalance() }<br>
- Cards : ${user.getCardInfo()} <br></h2>
+</h2>
 </div>
 
 
