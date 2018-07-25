@@ -21,26 +21,24 @@ public class TransactionsServiceImpl implements TransactionsService{
 	@Override
 	public void save(String fromuser,String touser,Long amount)
 	{
+		User user = userRepository.findByUsername(fromuser);
 		Transactions t = new Transactions();
 		t.setToUser(touser);
 		t.setFromCard("");
 		t.setAmount(amount);
-		Set<Transactions> s = new HashSet<>();
-		s.add(t);
+		t.setuId(user.getId());
 		
-		User user = userRepository.findByUsername(fromuser);
-		if(!user.getTransactions().isEmpty())
-		{
-			user.getTransactions().add(t);
-			//System.out.println("at transactions"+user.toString());
-		}
-		else
-		{
-			user.setTransactions(s);
-			System.out.println("at transactions"+user.toString());
-			
-		}
 		transactionsRepository.save(t);
+		
+		
+		
+		
+	}
+	public Set<Transactions> findAllTransactions(Long uId,String toUser)
+	{
+		Set<Transactions> t = transactionsRepository.findAllByUId(uId);
+		t.addAll(transactionsRepository.findAllByToUser(toUser));
+		return t;
 	}
 
 }

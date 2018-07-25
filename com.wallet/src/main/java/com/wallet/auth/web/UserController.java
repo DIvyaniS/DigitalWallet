@@ -1,7 +1,9 @@
 package com.wallet.auth.web;
 
 import com.wallet.auth.model.CardInfo;
+import com.wallet.auth.model.Transactions;
 import com.wallet.auth.model.User;
+import com.wallet.auth.repository.TransactionsRepository;
 import com.wallet.auth.repository.UserRepository;
 import com.wallet.auth.service.AddCardService;
 import com.wallet.auth.service.AddMoneyService;
@@ -13,6 +15,7 @@ import com.wallet.auth.validator.UserValidator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -154,6 +157,7 @@ public class UserController {
     	model.addAttribute("error","");
     	sendMoneyService.updateBalance(auth.getName(), touser,Long.parseLong(amount));
     	transactionsService.save(auth.getName(), touser, Long.parseLong(amount));
+    	
     	return "sendmoney";
     }
     @RequestMapping(value="/viewtransaction", method = RequestMethod.GET)
@@ -161,19 +165,20 @@ public class UserController {
     {
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findByUsername(auth.getName());
-    	String s;
-    	System.out.println(user.toString());
-    	if(!user.getTransactions().isEmpty())
+    	String s="";
+    	Set<Transactions> tset = transactionsService.findAllTransactions(user.getId(),user.getUsername()); 
+    	if(tset.isEmpty())
     	{
-    		s = user.toString();
-    		System.out.println("not null");
-    		
+    		s = "No transactions Found";
     	}
     	else
     	{
-    		s = "No Transactions to show"; 
+    		for(Transactions t: tset)
+    		{
+    			s += t.toString();
+    		}
     	}
-    	//System.out.println("in controller"+s);
+    	
     	model.addAttribute("result",s);
     	return "viewtransaction";
     }

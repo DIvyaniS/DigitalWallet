@@ -2,6 +2,8 @@ package com.wallet.auth.model;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -11,6 +13,7 @@ import com.wallet.auth.model.*;
 
 @Entity
 @Table(name = "user")
+@DynamicUpdate
 public class User {
     public User() {
 		super();
@@ -29,8 +32,7 @@ public class User {
 	@JoinTable(name = "user_cardInfo", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "cardInfo_id"))
     private Set<CardInfo> cardInfo;
     
-    @OneToMany(mappedBy="user" , cascade = CascadeType.ALL)
-    private Set<Transactions> transactions;
+    
     
 
     
@@ -93,18 +95,9 @@ public class User {
 		this.cardInfo = cardInfo;
 	}
 
-	public synchronized Set<Transactions> getTransactions() {
-		return transactions;
-	}
+	
 
-	public synchronized void setTransactions(Set<Transactions> transactions) {
-		this.transactions = transactions;
-	}
-
-	@Override
-	public String toString() {
-		return "User [transactions=" + transactions + "]";
-	}
+	
 
 //	@Override
 //	public String toString() {

@@ -21,9 +21,7 @@ public class Transactions {
 	private String fromCard;
 	private String toUser;
 	private Long amount;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="T_ID")
-	private User user;
+	private Long uId;
 	public Transactions() {
 		super();
 	}
@@ -58,13 +56,7 @@ public class Transactions {
 	}
 
 	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 
 
 
@@ -105,7 +97,23 @@ public class Transactions {
 	@Override
 	public String toString() {
 		return "Transactions [startDate=" + startDate + ", fromCard=" + fromCard + ", toUser=" + toUser + ", amount="
-				+ amount + "]";
+				+ amount + "]"+"\n";
+	}
+
+
+
+
+
+	public Long getuId() {
+		return uId;
+	}
+
+
+
+
+
+	public void setuId(Long uId) {
+		this.uId = uId;
 	}
 	
 }
