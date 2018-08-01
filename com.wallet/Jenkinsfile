@@ -68,7 +68,7 @@ pipeline
     {
         jdk 'java 8'
         maven 'Maven3'
-        sonar 'sonar-scanner'
+        
     }
 
     /**
@@ -155,8 +155,10 @@ pipeline
 
         steps{
         script {
+                scannerHome = tool 'sonar-scanner'
               withSonarQubeEnv('SonarQube Scanner') 
               {
+              sh "${scannerHome}/bin/sonar-scanner"
               sh 'mvn sonar:sonar ' + 
               '-f com.wallet/pom.xml ' +
               '-Dsonar.projectKey=Digital_Wallet' +
