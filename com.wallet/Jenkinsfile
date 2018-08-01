@@ -149,22 +149,21 @@ pipeline
                 }
             }
         }
-
-        stage('Quality Analysis') {
-            steps {
-                /**
-                 * makes use of one single agent, and spins off 2 runs of the steps inside each parallel branch
-                 */
-                parallel(
-                        "Integration Test": {
-                            echo 'Run integration tests'
-                        },
-                        "Sonar Scan": {
-                            sh "mvn sonar:sonar"
-                        }
-                )
-            }
+        stage('SonarQube analysis') { 
+        withSonarQubeEnv('Sonar') { 
+          sh 'mvn sonar:sonar ' + 
+          '-f all/pom.xml ' +
+          '-Dsonar.projectKey=Digital_Wallet' +
+          '-Dsonar.login=$SONAR_UN ' +
+          '-Dsonar.password=$SONAR_PW ' +
+          '-Dsonar.language=java ' +
+          '-Dsonar.sources=. ' +
+          '-Dsonar.tests=. ' +
+          '-Dsonar.test.inclusions=**/*Test*/** ' +
+          '-Dsonar.exclusions=**/*Test*/**'
         }
+    }
+        
 
         
 
