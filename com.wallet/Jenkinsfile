@@ -152,7 +152,7 @@ pipeline
         stage('SonarQube analysis') { 
         withSonarQubeEnv('Sonar') { 
           sh 'mvn sonar:sonar ' + 
-          '-f all/pom.xml ' +
+          '-f com.wallet/pom.xml ' +
           '-Dsonar.projectKey=Digital_Wallet' +
           '-Dsonar.login=$SONAR_UN ' +
           '-Dsonar.password=$SONAR_PW ' +
@@ -163,7 +163,7 @@ pipeline
           '-Dsonar.exclusions=**/*Test*/**'
         }
     }
-        
+
 
         
 
