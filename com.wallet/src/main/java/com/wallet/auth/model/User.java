@@ -32,7 +32,10 @@ public class User {
 	@JoinTable(name = "user_cardInfo", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "cardInfo_id"))
     private Set<CardInfo> cardInfo;
     
-    
+    public User(String username) {
+		super();
+		this.username=username;
+	}
     
 
     
