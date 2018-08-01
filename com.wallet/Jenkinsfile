@@ -68,6 +68,7 @@ pipeline
     {
         jdk 'java 8'
         maven 'Maven3'
+        sonar 'sonar-scanner'
     }
 
     /**
@@ -150,18 +151,27 @@ pipeline
             }
         }
         stage('SonarQube analysis') { 
-        withSonarQubeEnv('Sonar') { 
-          sh 'mvn sonar:sonar ' + 
-          '-f com.wallet/pom.xml ' +
-          '-Dsonar.projectKey=Digital_Wallet' +
-          '-Dsonar.login=$SONAR_UN ' +
-          '-Dsonar.password=$SONAR_PW ' +
-          '-Dsonar.language=java ' +
-          '-Dsonar.sources=. ' +
-          '-Dsonar.tests=. ' +
-          '-Dsonar.test.inclusions=**/*Test*/** ' +
-          '-Dsonar.exclusions=**/*Test*/**'
+
+
+        steps{
+        script {
+              withSonarQubeEnv('SonarQube Scanner') 
+              {
+              sh 'mvn sonar:sonar ' + 
+              '-f com.wallet/pom.xml ' +
+              '-Dsonar.projectKey=Digital_Wallet' +
+              '-Dsonar.login=$SONAR_UN ' +
+              '-Dsonar.password=$SONAR_PW ' +
+              '-Dsonar.language=java ' +
+              '-Dsonar.sources=. ' +
+              '-Dsonar.tests=. ' +
+              '-Dsonar.test.inclusions=**/*Test*/** ' +
+              '-Dsonar.exclusions=**/*Test*/**'
+              }
         }
+        }
+        
+      
     }
 
 
