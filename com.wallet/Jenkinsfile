@@ -158,7 +158,7 @@ pipeline
                 scannerHome = tool 'sonar-scanner'
               withSonarQubeEnv('SonarQube Scanner') 
               {
-              sh "${scannerHome}/bin/sonar-scanner"
+              sh "${scannerHome}"
               sh 'mvn sonar:sonar ' + 
               '-f com.wallet/pom.xml ' +
               '-Dsonar.projectKey=Digital_Wallet' +
