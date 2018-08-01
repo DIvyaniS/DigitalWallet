@@ -178,17 +178,7 @@ pipeline
      * post section defines actions which will be run at the end of the Pipeline run or stage
      * post section condition blocks: always, changed, failure, success, unstable, and aborted
      */
-    post 
-    {
-        // Run regardless of the completion status of the Pipeline run
-        always 
-        {
-           
-            // clean up workspace
-            deleteDir()
-        }
-
-    }
+    
 
     // configure Pipeline-specific options
     options {
