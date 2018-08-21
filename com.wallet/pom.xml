@@ -86,4 +86,50 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+ <!-- Publish the versioned releases here -->
+ <repository>
+  <id>c2i-framework-utils-nexus</id>
+  <name>vineetmanohar nexus</name>
+  <url>http://localhost:8081/repository/learning-intigration-RELE/</url>
+ </repository>
+
+ <!-- Publish the versioned releases here -->
+ <snapshotRepository>
+  <id>c2i-framework-utils-nexus</id>
+  <name>vineetmanohar nexus</name>
+  <url>http://localhost:8081/repository/learning-intigration-SNAP/</url>
+ </snapshotRepository>
+</distributionManagement>
+
+<!-- download artifacts from this repo -->
+<repositories>
+ <repository>
+  <id>c2i-framework-utils-nexus</id>
+  <name>vineetmanohar</name>
+  <url>http://localhost:8081/repository/install-frm-here/</url>
+  <releases>
+   <enabled>true</enabled>
+  </releases>
+
+  <snapshots>
+   <enabled>true</enabled>
+  </snapshots>
+ </repository>
+</repositories>
+
+<!-- download plugins from this repo -->
+<pluginRepositories>
+ <pluginRepository>
+  <id>c2i-framework-utils-nexus</id>
+  <name>vineetmanohar</name>
+  <url>http://localhost:8081/repository/install-frm-here/</url>
+  <releases>
+   <enabled>true</enabled>
+  </releases>
+  <snapshots>
+   <enabled>true</enabled>
+  </snapshots>
+ </pluginRepository>
+</pluginRepositories>
 </project>
