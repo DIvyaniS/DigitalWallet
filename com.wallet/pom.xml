@@ -90,14 +90,14 @@
  <!-- Publish the versioned releases here -->
  <repository>
   <id>c2i-framework-utils-nexus</id>
-  <name>vineetmanohar nexus</name>
+  <name>wallet nexus</name>
   <url>http://localhost:8081/repository/learning-intigration-RELE/</url>
  </repository>
 
  <!-- Publish the versioned releases here -->
  <snapshotRepository>
   <id>c2i-framework-utils-nexus</id>
-  <name>vineetmanohar nexus</name>
+  <name>wallet nexus</name>
   <url>http://localhost:8081/repository/learning-intigration-SNAP/</url>
  </snapshotRepository>
 </distributionManagement>
@@ -106,7 +106,7 @@
 <repositories>
  <repository>
   <id>c2i-framework-utils-nexus</id>
-  <name>vineetmanohar</name>
+  <name>wallet </name>
   <url>http://localhost:8081/repository/install-frm-here/</url>
   <releases>
    <enabled>true</enabled>
@@ -122,7 +122,7 @@
 <pluginRepositories>
  <pluginRepository>
   <id>c2i-framework-utils-nexus</id>
-  <name>vineetmanohar</name>
+  <name>wallet </name>
   <url>http://localhost:8081/repository/install-frm-here/</url>
   <releases>
    <enabled>true</enabled>
