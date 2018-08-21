@@ -28,7 +28,7 @@ triggers
         	// if the pom.xml is not in the root path provide the location of the pom (-f) as a relative path
             	steps 
             	{
-            		sh 'mvn -f com.wallet/pom.xml compile install package depoly'
+            		sh 'mvn -f com.wallet/pom.xml compile install package deploy'
              	}
              
         }
